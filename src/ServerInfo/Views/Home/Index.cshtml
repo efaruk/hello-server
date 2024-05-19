@@ -1,0 +1,218 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model ServerInfo.Models.ServerInformationModel;
+<!-- Page header -->
+<div class="page-header d-print-none">
+    <div class="container-xl">
+        <div class="row g-2 align-items-center">
+            <div class="col">
+                <h2 class="page-title">
+                    Request Details
+                </h2>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page body -->
+<div class="page-body">
+    <div class="container-xl">
+        <!-- Details -->
+        <div class="card">
+            <div class="card-header bg-blue text-blue-fg">
+                <h3 class="card-title">General</h3>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-vcenter card-table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Connection Id</td>
+                            <td>@Model.ConnectionId</td>
+                        </tr>
+                        <tr>
+                            <td>Trace Identifier</td>
+                            <td>@Model.TraceIdentifier</td>
+                        </tr>
+                        <tr>
+                            <td>Url</td>
+                            <td>@Model.Url</td>
+                        </tr>
+                        <tr>
+                            <td>RequestProtocol</td>
+                            <td>@Model.RequestProtocol</td>
+                        </tr>
+                        <tr>
+                            <td>RequestScheme</td>
+                            <td>@Model.RequestScheme</td>
+                        </tr>
+                        <tr>
+                            <td>RequestHost</td>
+                            <td>@Model.RequestHost</td>
+                        </tr>
+                        <tr>
+                            <td>RequestPort</td>
+                            <td>@Model.RequestPort</td>
+                        </tr>
+                        <tr>
+                            <td>RequestMethod</td>
+                            <td>@Model.RequestMethod</td>
+                        </tr>
+                        <tr>
+                            <td>RequestPathBase</td>
+                            <td>@Model.RequestPathBase</td>
+                        </tr>
+                        <tr>
+                            <td>RequestPath</td>
+                            <td>@Model.RequestPath</td>
+                        </tr>
+                        <tr>
+                            <td>RequestQueryString</td>
+                            <td>@Model.RequestQueryString</td>
+                        </tr>
+                        <tr>
+                            <td>RemoteIpAddress</td>
+                            <td>@Model.RemoteIpAddress</td>
+                        </tr>
+                        <tr>
+                            <td>RemotePort</td>
+                            <td>@Model.RemotePort</td>
+                        </tr>
+                        <tr>
+                            <td>LocalIpAddress</td>
+                            <td>@Model.LocalIpAddress</td>
+                        </tr>
+                        <tr>
+                            <td>LocalPort</td>
+                            <td>@Model.LocalPort</td>
+                        </tr>
+                        <tr>
+                            <td>ContentType</td>
+                            <td>@Model.ContentType</td>
+                        </tr>
+                        <tr>
+                            <td>ContentLength</td>
+                            <td>@Model.ContentLength</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- Headers -->
+        <div class="card">
+            <div class="card-header bg-blue text-blue-fg">
+                <h3 class="card-title">Headers</h3>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-vcenter card-table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var kv in Model.RequestHeaders)
+                        {
+                            <tr>
+                                <td>@kv.Key</td>
+                                <td>@kv.Value</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- Cookies -->
+        <div class="card">
+            <div class="card-header bg-blue text-blue-fg">
+                <h3 class="card-title">Cookies</h3>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-vcenter card-table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var kv in Model.RequestCookies)
+                        {
+                            <tr>
+                                <td>@kv.Key</td>
+                                <td>@kv.Value</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- Query Parameters -->
+        <div class="card">
+            <div class="card-header bg-blue text-blue-fg">
+                <h3 class="card-title">Query Parameters</h3>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-vcenter card-table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var kv in Model.QueryParameters)
+                        {
+                            <tr>
+                                <td>@kv.Key</td>
+                                <td>@kv.Value</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- Form Parameters -->
+        <div class="card">
+            <div class="card-header bg-blue text-blue-fg">
+                <h3 class="card-title">Form Parameters</h3>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-vcenter card-table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var kv in Model.FormParameters)
+                        {
+                            <tr>
+                                <td>@kv.Key</td>
+                                <td>@kv.Value</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>

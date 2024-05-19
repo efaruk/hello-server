@@ -1,0 +1,8 @@
+services:
+  server-info:
+    image: efaruk-server-info:latest
+    container_name: server-info
+    restart: unless-stopped
+    network_mode: bridge
+    ports:
+      - 8888:80
