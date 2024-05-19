@@ -1,7 +1,10 @@
 services:
   server-info:
-    image: efaruk-server-info:latest
+    image: efaruk/server-info:latest
     container_name: server-info
+    build:
+      context: .
+      dockerfile: Dockerfile
     restart: unless-stopped
     network_mode: bridge
     ports:
