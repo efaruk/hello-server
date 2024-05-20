@@ -23,7 +23,7 @@ docker run --name server-info -p 8888:80 -d efaruk/server-info
 ```
 docker compose up -d
 ```
-- If you want to build from source code and use your own docker image (No runtime needed)
+- If you want to build from source code and use your own docker image (No SDK needed)
 ```
 docker compose build
 docker compose up -d
