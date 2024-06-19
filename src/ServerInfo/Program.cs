@@ -24,6 +24,8 @@ namespace ServerInfo
                 options.ForwardedHeaders = ForwardedHeaders.All;
             });
 
+            builder.Services.AddHealthChecks().AddCheck<DefaultHealthCheck>("Default"); ;
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -44,6 +46,8 @@ namespace ServerInfo
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+
+            app.MapHealthChecks("/healthz");
 
             app.Run();
         }
