@@ -7,6 +7,8 @@ RUN dotnet publish -c Release -o publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 as runtime
 
+RUN apt-get update && apt-get install -y curl
+
 WORKDIR /app
 COPY --from=build /project/publish .
 
