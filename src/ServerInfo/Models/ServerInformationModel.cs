@@ -28,6 +28,7 @@ namespace ServerInfo.Models
         public Dictionary<string, string> RequestCookies { get; set; } = new Dictionary<string, string>();
         public Dictionary<string, string> QueryParameters { get; set; } = new Dictionary<string, string>();
         public Dictionary<string, string> FormParameters { get; set; } = new Dictionary<string, string>();
+        public Dictionary<string, string> EnvironmentVariables { get; set; } = new Dictionary<string, string>();
         
     }
 }

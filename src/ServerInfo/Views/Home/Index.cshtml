@@ -213,6 +213,33 @@
                 </table>
             </div>
         </div>
+        <!-- Environment Variables -->
+        <div class="card">
+            <div class="card-header bg-blue text-blue-fg">
+                <h3 class="card-title">Environment Variables</h3>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-vcenter card-table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var kv in Model.EnvironmentVariables)
+                        {
+                            <tr>
+                                <td>@kv.Key</td>
+                                <td>@kv.Value</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
     </div>
 </div>

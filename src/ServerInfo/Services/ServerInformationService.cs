@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http.Extensions;
+﻿using System.Collections;
+using Microsoft.AspNetCore.Http.Extensions;
 using ServerInfo.Models;
 
 namespace ServerInfo.Services
@@ -49,6 +50,15 @@ namespace ServerInfo.Services
                 foreach (var form in httpContext.Request.Form)
                 {
                     model.FormParameters.Add(form.Key, form.Value);
+                }
+            }
+
+            var envVars = Environment.GetEnvironmentVariables();
+            foreach(DictionaryEntry de in envVars) 
+            {
+                var key = de.Key.ToString();
+                if (!string.IsNullOrWhiteSpace(key)) {
+                    model.EnvironmentVariables.Add(key, de.Value?.ToString() ?? "");
                 }
             }
 
